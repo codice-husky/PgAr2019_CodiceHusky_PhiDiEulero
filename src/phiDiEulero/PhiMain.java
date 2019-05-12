@@ -1,10 +1,24 @@
 package phiDiEulero;
 
+import java.util.Scanner;
+
 public class PhiMain {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Inserisci un numero: ");
+		String risp = sc.nextLine();
+		boolean c = true;
+		while (c) {
+			c = false;
+			try {
+				int valore = Integer.parseInt(risp);
+				System.out.println("La phi di Eulero del numero"+ valore +"Ã¨"+ phi(valore));
+			}catch(NumberFormatException e) {
+				System.out.println("Devi inserire un numero !");
+				c = true;
+			}
+		}
 	}
 	
 	public static Integer phi(int num) {
@@ -14,7 +28,7 @@ public class PhiMain {
 			return phi(risCaso2[0] * risCaso2[1]);
 		} else if(risCaso1!=null) {
 			return ((risCaso1[0]-1)* (int)Math.pow(risCaso1[0], risCaso1[1]-1) );
-		} else return null; //nessuno dei casi è contemplato
+		} else return null; //nessuno dei casi ï¿½ contemplato
 	}
 	
 	public static int[] caso1(int n) {
@@ -31,7 +45,7 @@ public class PhiMain {
                      }else if(potenza > n) {
                     	 break;
                      }
-                     n++;
+                     k++;
                 }
             }
 		}
