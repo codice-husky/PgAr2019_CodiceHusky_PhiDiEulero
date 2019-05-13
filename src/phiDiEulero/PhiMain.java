@@ -11,8 +11,12 @@ public class PhiMain {
 				System.out.print("Inserisci un numero: ");
 				String risp = sc.nextLine();
 				int valore = Integer.parseInt(risp);
-				System.out.println("La phi di Eulero del numero "+ valore +" è "+ phi(valore));
-				break;
+				if(valore >1) {
+					System.out.println("La phi di Eulero del numero "+ valore +" è "+ phi(valore));
+					break;
+				}else {
+					System.out.println("Devi inserire un numero maggiore di 1 ");
+				}
 			}catch(NumberFormatException e) {
 				System.out.println("Devi inserire un numero !");
 			}
@@ -31,7 +35,7 @@ public class PhiMain {
 	
 	public static int[] caso1(int n) {
 		int p, k;
-		for(p =2;p<n;p++) {
+		for(p =2;p<=n;p++) {
             if(isPrimo(p)) {
                 k = 0;
                 int potenza = 0;
@@ -50,8 +54,8 @@ public class PhiMain {
 	
 	public static int[] caso2(int n) {
 		int a, b;
-		for(a=2; a<=n; a++) {
-			for(b=2; b<=n; b++) {
+		for(a=2; a<n; a++) {
+			for(b=2; b<n; b++) {
 				if(a*b == n && mcd(a, b) == 1) {
 					int vett[] = {a,b};
 					return vett;
@@ -68,8 +72,8 @@ public class PhiMain {
 	}
 	
     public static boolean isPrimo(int p) {
-        for(int x = 2;x<=p;x++) {
-            if(p%x == 0 && x!=p) return false;
+        for(int x = 2;x<p;x++) {
+            if(p%x == 0) return false;
         }
         return true;
     }
