@@ -5,20 +5,18 @@ import java.util.Scanner;
 public class PhiMain {
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		System.out.print("Inserisci un numero: ");
-		String risp = sc.nextLine();
-		boolean c = true;
-		while (c) {
-			c = false;
+		Scanner sc = new Scanner(System.in);	
+		do {
 			try {
+				System.out.print("Inserisci un numero: ");
+				String risp = sc.nextLine();
 				int valore = Integer.parseInt(risp);
 				System.out.println("La phi di Eulero del numero "+ valore +" è "+ phi(valore));
+				break;
 			}catch(NumberFormatException e) {
 				System.out.println("Devi inserire un numero !");
-				c = true;
 			}
-		}
+		} while(true);
 	}
 	
 	public static Integer phi(int num) {
@@ -52,8 +50,8 @@ public class PhiMain {
 	
 	public static int[] caso2(int n) {
 		int a, b;
-		for(a=1; a<=n; a++) {
-			for(b=1; b<n; b++) {
+		for(a=2; a<=n; a++) {
+			for(b=2; b<=n; b++) {
 				if(a*b == n && mcd(a, b) == 1) {
 					int vett[] = {a,b};
 					return vett;
