@@ -13,7 +13,7 @@ public class PhiMain {
 			c = false;
 			try {
 				int valore = Integer.parseInt(risp);
-				System.out.println("La phi di Eulero del numero"+ valore +"è"+ phi(valore));
+				System.out.println("La phi di Eulero del numero "+ valore +" è "+ phi(valore));
 			}catch(NumberFormatException e) {
 				System.out.println("Devi inserire un numero !");
 				c = true;
@@ -24,11 +24,11 @@ public class PhiMain {
 	public static Integer phi(int num) {
 		int[] risCaso2 = caso2(num);
 		int[] risCaso1 = caso1(num);
-		if(risCaso2!=null) {
-			return phi(risCaso2[0] * risCaso2[1]);
-		} else if(risCaso1!=null) {
+		if(risCaso1 != null) {
 			return ((risCaso1[0]-1)* (int)Math.pow(risCaso1[0], risCaso1[1]-1) );
-		} else return null; //nessuno dei casi � contemplato
+		}else if(risCaso2!=null) {
+			return phi(risCaso2[0] * risCaso2[1]);
+		}else return null; //nessuno dei casi � contemplato
 	}
 	
 	public static int[] caso1(int n) {
@@ -42,8 +42,6 @@ public class PhiMain {
                      if(potenza == n) {
                     	 int vett[] = {p, k};
                     	 return vett;
-                     }else if(potenza > n) {
-                    	 break;
                      }
                      k++;
                 }
@@ -57,7 +55,7 @@ public class PhiMain {
 		for(a=1; a<=n; a++) {
 			for(b=1; b<n; b++) {
 				if(a*b == n && mcd(a, b) == 1) {
-					int vett[] = {a, b};
+					int vett[] = {a,b};
 					return vett;
 				}
 			}
