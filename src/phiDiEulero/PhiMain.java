@@ -29,7 +29,7 @@ public class PhiMain {
 		if(risCaso1 != null) {
 			return ((risCaso1[0]-1)* (int)Math.pow(risCaso1[0], risCaso1[1]-1) );
 		}else if(risCaso2!=null) {
-			return phi(risCaso2[0] * risCaso2[1]);
+			return phi(risCaso2[0]) * phi(risCaso2[1]);
 		}else return null; //nessuno dei casi � contemplato
 	}
 	
