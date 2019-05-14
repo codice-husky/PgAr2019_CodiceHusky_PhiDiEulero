@@ -33,6 +33,17 @@ public class PhiMain {
 		}else return null; //nessuno dei casi � contemplato
 	}
 	
+	static int phiNonIterativo(int n)
+    {
+        int numeri = 1;
+        for (int i = 2; i < n; i++)
+            if (mcdNonIterativo(i, n) == 1)
+                numeri++;
+        return numeri;
+    }
+	
+	
+	
 	public static int[] caso1(int n) {
 		int p, k;
 		for(p =2;p<=n;p++) {
@@ -71,10 +82,29 @@ public class PhiMain {
 	  else return mcd(b,a%b);
 	}
 	
+	public static int mcdNonIterativo(int a,int b) {
+        if(b>a){
+            int t = a; 
+            a=b;
+            b=t;
+        }
+        while(a%b !=0) {
+        	b = a%b; 
+        }
+        return b;
+    }
+	
+	
     public static boolean isPrimo(int p) {
         for(int x = 2;x<p;x++) {
             if(p%x == 0) return false;
         }
         return true;
     }
+    
+    
+    
+    
+    
+    
 }
